@@ -48,10 +48,10 @@ for i in range(50):
     baseline = F.cosine_similarity(norm_ori_feature.unsqueeze(0), norm_rec_feature.unsqueeze(0))
     for j in range(50):
         if j != i:
-            others_feature = torch.mean(IT_feature[j],dim=0).flatten()
+            others_feature = torch.mean(true_feature[j],dim=0).flatten()
             norm_others_feature = (others_feature - torch.mean(others_feature))/torch.std(others_feature)
             #compute the pearson correlation coefficient between two images
-            corr_others = F.cosine_similarity(norm_ori_feature.unsqueeze(0), norm_others_feature.unsqueeze(0))
+            corr_others = F.cosine_similarity(norm_rec_feature.unsqueeze(0), norm_others_feature.unsqueeze(0))
             if corr_others < baseline:
                 count[i] += 1
 count = count/49
