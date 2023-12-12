@@ -21,7 +21,7 @@ for i in range(50):
     # print(batch_img.shape)
     # Pass the image through the new model to get the output of fc6
     conv2_output = alexnet_conv2(batch_img)
-    true_feature[i-1] = conv2_output
+    true_feature[i] = conv2_output
 print(true_feature.shape)
 
 # Compute the feature of IT reconstruction images
@@ -34,7 +34,7 @@ for i in range(50):
     # print(batch_img.shape)
     # Pass the image through the new model to get the output of fc6
     conv2_output = alexnet_conv2(batch_img)
-    IT_feature[i-1] = conv2_output
+    IT_feature[i] = conv2_output
 print(IT_feature.shape)
 
 # Compute PSM for IT images
